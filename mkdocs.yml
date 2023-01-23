@@ -28,8 +28,10 @@ markdown_extensions:
   # - attr_list
   - pymdownx.arithmatex:
       generic: true
-  # - pymdownx.superfences
-  # - pymdownx.details
+  - nl2br
+  - admonition
+  - pymdownx.superfences
+  - pymdownx.details
   # - pymdownx.magiclink
   - pymdownx.tasklist:
       custom_checkbox: true
@@ -47,6 +49,7 @@ plugins:
   - search
   - roamlinks 
   - mermaid2
+  - callouts
 
 extra_javascript:
   - javascripts/mathjax.js
