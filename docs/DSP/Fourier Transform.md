@@ -49,7 +49,7 @@ In essence, the Fourier transform is the decomposition of signals into a sum of 
 >$$\begin{array}{}\LARGE X(e^{j2\pi f})=\sum\limits_{n=-\infty}^{\infty}x[n]e^{-j2\pi fn}\\\text{The DTFT}\end{array}$$
 
 >[!success]- Discrete (Time and Frequency) Fourier Transform
->- If we take sample the [[DTFT]] on it's frequency axis, we get the [[DFS|Discrete Fourier Series]] and [[Discrete Fourier Transform]], which are Discrete in both Time and Frequency. Typically, these (particularly the DFT) are used, because they are much easier for computers to calculate than the continuous DTFT
+>- If we take sample the [[DTFT]] on it's frequency axis, we get the [[DFS|Discrete Fourier Series]] and [[DFT]], which are Discrete in both Time and Frequency. Typically, these (particularly the DFT) are used, because they are much easier for computers to calculate than the continuous DTFT
 >$$\begin{array}{}\LARGE X[k]=\sum\limits_{n=0}^{N-1}x[n]e^{-jk \frac{2\pi}{N}n}\\\text{The DFS and DFT (Analysis Equation)}\end{array}$$
 >- Where $X[k]$ is the k-th coefficient of the DFT/DFS, j is the imaginary unit, and the sum is taken over the length of one period of the sequence (DFS) or the length of the sequence (DFT). 
 >- DFS describes *infinite-length, periodic* signals, whereas the DFT describes *finite-length* signals. A good discussion can be seen here, https://dsp.stackexchange.com/a/18157. The output of this equation will be the exact same for a DFT and a DFS.

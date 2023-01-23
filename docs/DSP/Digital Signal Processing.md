@@ -24,7 +24,7 @@ Here's a rough outline of the DSP stuff we did
 		- [[Fourier Transform]]
 			- [[DTFT]]
 				- [[Frequency Response]]
-			- [[Discrete Fourier Transform]]
+			- [[DFT]]
 			- [[DFS]]
 			- [[FFT]]
 		- [[DTFT|Spectrum]]
