@@ -5,7 +5,7 @@ modification date: Friday 30th December 2022 15:32:22
 ---
 ## The Basics
 
->[!cite]- Definition
+>[!quote]- Definition
 > >"In mathematics, the discrete Fourier transform (DFT) converts a finite sequence of equally-spaced samples of a function into a same-length sequence of equally-spaced samples of the discrete-time Fourier transform (DTFT), which is a complex-valued function of frequency."
  >\-https://home.engineering.iastate.edu/~julied/classes/ee524/LectureNotes/l5.pdf
 
@@ -31,7 +31,7 @@ modification date: Friday 30th December 2022 15:32:22
 >#### Zero-Padded DFT
 >![[302 Zero-padded DFT.png]]
 
->[!FAQ]- Example (*Analysis*)
+>[!example]- Example (*Analysis*)
 >- Building on the example from the [[DTFT]] page, let's find the 4 point and 8 point DFT of the sequence, $x[n]=\{1,1,1,1\}$
 >- Insert maths here
 >- Here's a MATLAB plot of the DTFT, aswell as the 4 point (Green Fill), and 8 point (Red Circle) DFT. As you can see, the DFT is a sampling of the DTFT in frequency. 

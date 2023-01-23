@@ -19,7 +19,7 @@ modification date: Friday 30th December 2022 14:31:52
 >[!note]- Periodicity of the DTFT
 > Note that the DTFT is *periodic*. Since it is a sum of sinusoids, which all have frequency multiples of $2\pi$, the longest period will be when $n=1$, such that $\large e^{-j2\pi f}$. This specific [[Complex Sinusoid]] has a period of $2\pi$, so it will go through a full period every full integer multiple of $f$. **Therefore, we only need to plot a range of $f=[0,1)$ or $f=[-0.5,0.5)$**
 
->[!faq]- Example (*Analysis*)
+>[!question]- Example (*Analysis*)
 >- Let $x[n]=\{1,1,1,1\}$ (0 otherwise) and $n=0..3$. Find the DTFT of the given signal
 >- DTFT: $\large X(e^{j2\pi f})=\sum\limits_{n=-\infty}^{\infty}x[n]e^{-j2\pi fn}$
 >- Because $x[n]$ is 0 outside of $0\le n \le 3$, we can simplify the sum neatly: $=x[0]e^{-j2\pi f0}+x[1]e^{-j2\pi f1}+x[2]e^{-j2\pi f2}+x[3]e^{-j2\pi f3}$
@@ -37,7 +37,7 @@ ylabel("Complex Magnitude of the DTFT");
 
 ## Interpreting the Spectrum
 
->[!success]+ The Spectrum
+>[!success]- The Spectrum
 >- A "Spectrum" is the DTFT of a Signal or Sequence. Typically if it's the DTFT of a System's [[Impulse Response]], we call it a [[Frequency Response]] instead.
 >- Typically broken into two parts:
 >	- Amplitude Spectrum: $|Y (e^{j2\pi f})|=|H (e^{j2\pi f})||X (e^{j2\pi f})|$

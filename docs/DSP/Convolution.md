@@ -3,7 +3,7 @@ creation date: 2022-12-29 14:21
 modification date: Thursday 29th December 2022 14:21:33
 ---
 
-> [!summary] Equation
+> [!abstract] Equation
 > - Convolution is most typically seen in the relationship between the Input, Output, and [[Impulse Response]] of a [[Discrete-Time Signal]]:
 > ![[Pasted image 20221229142757.png]]
 > 

@@ -4,7 +4,7 @@ creation date: 2022-12-30 16:28
 modification date: Friday 30th December 2022 16:28:17
 ---
 
->[!hint]+ Equation
+>[!tip]+ Equation
 >Given two sequences $x[n]$ and $h[n]$ which are both defined on n=0,1,2,...,N-1, the circular convolution $z[n]$ is
 >$$\LARGE z[n]=x[n]\circledast h[n]=\sum\limits_{m=0}^{N-1}x[(m)_N]h[(n-m)_N]$$
 >

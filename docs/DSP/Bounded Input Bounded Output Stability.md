@@ -4,7 +4,7 @@ creation date: 2022-12-29 17:08
 modification date: Thursday 29th December 2022 17:08:47
 ---
 
->[!faq] BIBO
+>[!question] BIBO
 >- *Bounded* means finite
 >- *BIBO Stable* means that any bounded input will produce a bounded output.
 >- An [[Discrete-Time Signal|DT]] [[Linear and Time Invariant Systems|LTI]] system is BIBO Stable if and only if h[n] is absolutely summable. This is easy to prove for signals which are finite in length, or those which are finite periodic sequencues, but some signals grow without bound. 

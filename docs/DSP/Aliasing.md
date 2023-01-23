@@ -5,7 +5,7 @@ modification date: Friday 30th December 2022 13:23:42
 ---
 ## Basics
 
->[!summary]- What is Aliasing
+>[!abstract]- What is Aliasing
 >- Aliasing is an effect of our [[Discrete-Time Signal|Discrete-Time]] definition that causes different signals to become indistinguishable (aliases of one another, when sampled)
 >- In the example below, these two *different* waveforms appear identical when sampled
 >	- ![[Pasted image 20221230134039.png]]

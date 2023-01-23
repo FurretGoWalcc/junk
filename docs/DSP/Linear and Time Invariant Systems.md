@@ -6,7 +6,7 @@ modification date: Thursday 29th December 2022 14:55:11
 A LTI system is both Linear and Time Invariant.
 >[!Note]- Linear
 >A linear system is additive and homogenous. 
->>[!hint] Additive
+>>[!tip] Additive
 >>- Requires that for any two inputs $x_{1}[n]$ and $x_{2}[n]$, where $Lx_1[n]\rightarrow y_1[n]$ and given system L $Lx_2[n]\rightarrow y_2[n]$:
 >>	$$Lx=y\rightarrow L(x_1+x_2)\ne y_1+y_2$$
 >>- Aka, replace x with the two inputs, then set them equal to the sum of the two inputs.

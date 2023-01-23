@@ -8,10 +8,10 @@ In essence, the Fourier transform is the decomposition of signals into a sum of 
 ---
 ## The Basics
 
->[!cite]- A helpful 3Blue1Brown Video
+>[!quote]- A helpful 3Blue1Brown Video
 ><iframe width="840" height="472.5" src="https://www.youtube.com/embed/spUNpyF58BY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
->[!done]- Why Fourier is Important
+>[!success]- Why Fourier is Important
 >![[Pasted image 20230101174600.png]]
 >- Fourier transforms are all about taking a signal or sequence and thinking about it as a series (sum) of sine and cosine waves.
 >- Oftentimes we only see the sum of all the smaller components (the yellow line above)
@@ -19,7 +19,7 @@ In essence, the Fourier transform is the decomposition of signals into a sum of 
 >	- **1. Identify frequency makeup (the individual sinusoids which could represent our signal)**
 >	- **2. Do something to a particular group of frequencies, in which case we need a frequency representation of a signal so that we can scale desired portions appropriately.****
 
->[!hint]- Building the Continuous Fourier Transform from the Ground-Up
+>[!tip]- Building the Continuous Fourier Transform from the Ground-Up
 >![[Pasted image 20230102144235.png]]
 >- 3Blue1Brown shows it in a pretty elegant way in this picture.
 >	- At the top, we have the input signal. It's got a constant frequency or set of frequencies.

@@ -4,7 +4,7 @@ creation date: 2022-12-29 22:22
 modification date: Thursday 29th December 2022 22:22:42
 ---
 
->[!cite] ## Euler's Formula
+>[!quote] Euler's Formula
 >$$\LARGE e^{ix}=cos(x)+isin(x)$$
 >- Euler's formula basically states that a exponential raised to a imaginary value has both a real and a imaginary component
 >- If we map the axis such that vertical is Imag. and horizontal is real, we find that our exponential raised to a imaginary value will appear to rotate CCW with increasing constant values, hence the sine and cosine

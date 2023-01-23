@@ -6,7 +6,7 @@ modification date: Friday 30th December 2022 12:14:57
 
 ## The Basics
 
->[!hint]- Equation
+>[!tip]- Equation
 >- The Frequency Response Characteristic is the [[Impulse Response]] of a [[Linear and Time Invariant Systems|LTI]] system to a [[Complex Sinusoid]]
 >- Also known as the [[DTFT|DTFT]] of $h[n]$ and the *Frequency Response Characteristic*
 >$$\LARGE H(e^{j2\pi f})=\sum\limits_{k=-\infty}^{\infty}h[k]e^{-j2\pi fk}$$
@@ -23,7 +23,7 @@ modification date: Friday 30th December 2022 12:14:57
 >- The response of an [[Linear and Time Invariant Systems|LTI]] system to a **sinusoidal input will be a sinusoid with the same frequency**
 >	- Because both the input and the response have the same frequency, the output will too!
 
->[!done]- Periodicity
+>[!success]- Periodicity
 >- **$H(e^{j2\pi f})$ is periodic with a period of 1**:
 >	- $H(e^{j2\pi (f+1)})=H(e^{j2\pi f})$
 >	- (Period of sine and cosine is 2pi, so sin(2pif) has a period of 1)

@@ -3,7 +3,7 @@ creation date: 2022-12-29 13:34
 modification date: Thursday 29th December 2022 13:34:25
 ---
 
-> [!hint] The Impulse Response $h[n]$
+> [!tip] The Impulse Response $h[n]$
 > - Replace __ in a [[Discrete-Time Signal|DT]] Signal
 > 	- x[n] with $\delta[n]$
 > 	- y[n] with $h[n]$

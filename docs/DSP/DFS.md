@@ -3,7 +3,7 @@ aliases: [Discrete Fourier Series, DTFS, DFS]
 creation date: 2022-12-30 22:13
 modification date: Friday 30th December 2022 22:13:01
 ---
->[!cite]-  Helpful Resources
+>[!quote]-  Helpful Resources
 >https://ethz.ch/content/dam/ethz/special-interest/mavt/dynamic-systems-n-control/idsc-dam/Lectures/Signals-and-Systems/Lectures/Fall2018/SigSys_Lect5.pdf
 
 ## Why DFT/DFS and Difference Between DFT/DFS
@@ -12,7 +12,7 @@ See [[Fourier Transform#Why Fourier?]] and [[Fourier Transform#Discrete Fourier]
 
 
 ## What is the DFT/DFS?
->[!hint]+ DFT/DFS Representation of a Periodic Signal
+>[!tip]+ DFT/DFS Representation of a Periodic Signal
 >The Discrete Fourier Series perfectly represents a *periodic* sequence $x[n]$ as a series (sum) of sinusoids (or [[Complex Sinusoid]]s). 
 >- Below is the complex forms of the *Synthesis* (Discrete Frequency to Discrete Time), and *Analysis* (Discrete Time to Discrete Frequency)
 >$$\begin{array}{} 
@@ -24,7 +24,7 @@ See [[Fourier Transform#Why Fourier?]] and [[Fourier Transform#Discrete Fourier]
 >- Aka [[Discrete-Time Signal|Discrete-Time]] Fourier Series (DTFS)
 
 ## Example Analysis
->[!faq]- Example Coefficient Calculation (*Analyzing* Frequency Content of a Sequence)
+>[!question]- Example Coefficient Calculation (*Analyzing* Frequency Content of a Sequence)
 >Given the periodic sequence, $x[n]=\{...,2,0,4,-5,2,0,4,-5,2,0,4,-5,...\}$, and that the first -5 is n=0 find the DFS coefficients $X[k]$.
 >(Alternative prompt for DFT: Given a sequence defined below, find the DFT coefficients for the sequence)
 >$$x[n]=\Bigl\{ \begin{array}{l}{-5,2,0,4},\; \text{ for } 0\le n <N \\0,\; otherwise\end{array}$$
@@ -46,7 +46,7 @@ See [[Fourier Transform#Why Fourier?]] and [[Fourier Transform#Discrete Fourier]
 >8. Answer: $X[k]=\{1,-5+2j,-11,-5-2j\}$
 
 ## Example Synthesis
->[!note]- But what do the coefficients mean? (*Synthesizing* a signal from it's frequency content)
+>[!example]- But what do the coefficients mean? (*Synthesizing* a signal from it's frequency content)
 >- Let's use the previous example's coefficients:  $X[k]=\{1,-5+2j,-11,-5-2j\}$
 >- The Synthesis equation: $$\LARGE x[n]=\frac{1}{N}\sum\limits_{k=0}^{N-1}X[k]e^{j2\pi \frac{k}{N}n}$$
 >- If we manually build the sinusoid form of those coefficients using [[Complex Sinusoid|Eulers Formula]], we'll find that all of the imaginary parts of the our equation will either cancel out or be zero-valued for integer values of n, leaving us with just the real portions at our sampling points:
