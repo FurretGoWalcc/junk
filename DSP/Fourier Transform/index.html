@@ -1,0 +1,484 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../Discrete-Time%20Unit%20Functions/" rel="prev"/>
+<link href="../Frequency%20Response/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-9.0.6" name="generator"/>
+<title>Fourier Transform - obsidian-mkdocs template</title>
+<link href="../../assets/stylesheets/main.558e4712.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="pink" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#the-basics">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="obsidian-mkdocs template" class="md-header__button md-logo" data-md-component="logo" href="../.." title="obsidian-mkdocs template">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            obsidian-mkdocs template
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Fourier Transform
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="pink" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 6H7c-3.31 0-6 2.69-6 6s2.69 6 6 6h10c3.31 0 6-2.69 6-6s-2.69-6-6-6zm0 10H7c-2.21 0-4-1.79-4-4s1.79-4 4-4h10c2.21 0 4 1.79 4 4s-1.79 4-4 4zM7 9c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="blue" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="pink" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17 7H7a5 5 0 0 0-5 5 5 5 0 0 0 5 5h10a5 5 0 0 0 5-5 5 5 0 0 0-5-5m0 8a3 3 0 0 1-3-3 3 3 0 0 1 3-3 3 3 0 0 1 3 3 3 3 0 0 1-3 3Z"></path></svg>
+</label>
+</form>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="obsidian-mkdocs template" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="obsidian-mkdocs template">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    obsidian-mkdocs template
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Obsidian Notes
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label aria-expanded="true" class="md-nav__link" for="__nav_2" tabindex="0">
+          DSP
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="DSP" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          DSP
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Aliasing/">
+        Aliasing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Block%20Diagrams/">
+        Block Diagrams
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Bounded%20Input%20Bounded%20Output%20Stability/">
+        Bounded Input Bounded Output Stability
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Causal%20and%20Memoryless/">
+        Causal and Memoryless
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Cinc/">
+        Cinc
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Circular%20Convolution/">
+        Circular Convolution
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Complex%20Sinusoid/">
+        Complex Sinusoid
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Convolution/">
+        Convolution
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../DFS/">
+        DFS
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../DFT/">
+        DFT
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../DTFT/">
+        DTFT
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Digital%20Signal%20Processing/">
+        Digital Signal Processing
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Discrete%20Fourier%20Transform/">
+        Discrete Fourier Transform
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Discrete-Time%20Signal/">
+        Discrete Time Signal
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Discrete-Time%20Unit%20Functions/">
+        Discrete Time Unit Functions
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Fourier Transform
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Fourier Transform
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-basics">
+    The Basics
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#discrete-fourier">
+    Discrete Fourier
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#domain-comparison">
+    Domain Comparison
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Frequency%20Response/">
+        Frequency Response
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Ideal%20Filters/">
+        Ideal Filters
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Impulse%20Response/">
+        Impulse Response
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Linear%20and%20Time%20Invariant%20Systems/">
+        Linear and Time Invariant Systems
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../Normalized%20Frequency/">
+        Normalized Frequency
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" id="__nav_3" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_3" tabindex="0">
+          Features
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Features" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+          Features
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Features/LaTeX%20Math%20Support/">
+        LaTeX Math Support
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Features/Mermaid%20Diagrams/">
+        Mermaid diagrams
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Features/Text%20Formatting/">
+        Text Formatting
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" id="__nav_4" type="checkbox"/>
+<label aria-expanded="false" class="md-nav__link" for="__nav_4" tabindex="0">
+          Topic 1
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Topic 1" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+          Topic 1
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Topic%201/Note%201/">
+        Note 1
+      </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../Topic%201/Note%202/">
+        Note 2
+      </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-basics">
+    The Basics
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#discrete-fourier">
+    Discrete Fourier
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#domain-comparison">
+    Domain Comparison
+  </a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1>Fourier Transform</h1>
+<p>In essence, the Fourier transform is the decomposition of signals into a sum of <a href="../Complex%20Sinusoid/">Complex Sinusoid</a>s of varying frequencies. With a frequency representation, we get a clearer representation of the signal's makeup. For instance, if we took a Fourier Transform of an audio signal, we might be able to easily see noise at 60 Hz from the power grid. As with most transforms, we can go both ways; towards frequency (<em>Analysis</em>) and towards time (<em>Synthesis</em>/<em>Inverse</em>).</p>
+<hr/>
+<h2 id="the-basics">The Basics<a class="headerlink" href="#the-basics" title="Permanent link">¶</a></h2>
+<details class="quote">
+<summary>A helpful 3Blue1Brown Video</summary>
+<p><iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" height="472.5" src="https://www.youtube.com/embed/spUNpyF58BY" title="YouTube video player" width="840"></iframe></p>
+</details>
+<details class="success">
+<summary>Why Fourier is Important</summary>
+<p><img alt="Pasted image 20230101174600.png" src="../attachments/Pasted%20image%2020230101174600.png"/><br/>
+- Fourier transforms are all about taking a signal or sequence and thinking about it as a series (sum) of sine and cosine waves.<br/>
+- Oftentimes we only see the sum of all the smaller components (the yellow line above)<br/>
+- Typically, our goal is to: <br/>
+    - <strong>1. Identify frequency makeup (the individual sinusoids which could represent our signal)</strong><br/>
+    - <strong>2. Do something to a particular group of frequencies, in which case we need a frequency representation of a signal so that we can scale desired portions appropriately.</strong>**</p>
+</details>
+<details class="tip">
+<summary>Building the Continuous Fourier Transform from the Ground-Up</summary>
+<p><img alt="Pasted image 20230102144235.png" src="../attachments/Pasted%20image%2020230102144235.png"/><br/>
+- 3Blue1Brown shows it in a pretty elegant way in this picture.<br/>
+    - At the top, we have the input signal. It's got a constant frequency or set of frequencies.<br/>
+    - On the bottom left, we have a 2D graph on the Complex Plane.<br/>
+        - We create this graph by "winding"- using the amplitude of the graph sampled at some <em>other frequency</em>. You can visually see the periods of this other frequency as the dotted lines on the top graph.<br/>
+        - Rotating with the other frequency, the radius from the origin at each angle is determined by the sampled real magnitude of the input. <br/>
+        - Then we look at the <em>center of mass</em> about the plane. If the center of mass is near the origin, that means that the frequency we are winding with does not have a strong correlation with any particular amplitude. If it is leaning to one side, that means that we have roughly the same amplitude in the same places every revolution.<br/>
+    - On the bottom right, we have the <em>real</em> value of the center of mass of the circle. <br/>
+        - As we change the winding frequency, we begin to see the full picture- where the center of mass has little to no correlation, and where it is strongly pulled to one direction. In this way we can differentiate between the different frequencies. <br/>
+        - If we do this continuously, we are essentially creating the <a href="../DTFT/">Spectrum</a>.<br/>
+ - Roughly speaking, <span class="arithmatex">\(<span class="arithmatex">\(\begin{array}{} X(e^{j2\pi F})\approx \frac{1}{(t_2-t_1)}\int\limits_{t_1}^{t_2}g(t)e^{-j2\pi Ft}dt\\\text{The "Almost" Continious Time Fourier Transform}\end{array}\)</span>\)</span><br/>
+ - In other words, the Fourier Transform is essentially really just the mean of a function that is rotated around a circle at <span class="arithmatex">\(F\)</span> cycles/second over time interval <span class="arithmatex">\(t_{2}\)</span> to <span class="arithmatex">\(t_1\)</span><br/>
+ - The only real distinction is that rather than the average over time, we usually just find the total sum. This is just a scaling difference, so the graph is essentially the same.<br/>
+ - The negative in the complex exponential is there because the convention is to rotate CW rather than CCW.<br/>
+<span class="arithmatex">\(<span class="arithmatex">\(\LARGE \begin{array}{} X(e^{j2\pi F}) = \int\limits_{t_1}^{t_2}g(t)e^{-j2\pi Ft}dt\\\text{The Continious Time Fourier Transform}\end{array}\)</span>\)</span><br/>
+ - Keep in mind that the Fourier Transform typically produces <em>Complex</em> coefficients, so oftentimes you will need to explicitly find the <em>Magnitude</em> to correctly work with in the frequency domain.</p>
+</details>
+<hr/>
+<h2 id="discrete-fourier">Discrete Fourier<a class="headerlink" href="#discrete-fourier" title="Permanent link">¶</a></h2>
+<details class="danger">
+<summary>Continuous-Time to a Discrete-Time Representation</summary>
+<ul>
+<li>Oftentimes in reality, we are <em>sampling</em> a real thing to obtain a partial understanding of a continuous thing -&gt; Continuous input <span class="arithmatex">\(g(t)\)</span> replaced with <a href="../Discrete-Time%20Signal/">DT</a> input <span class="arithmatex">\(x[n]\)</span>.   </li>
+<li>Due to sampling, the notion of <a href="../Normalized%20Frequency/">Normalized Frequency</a> results from substituting <span class="arithmatex">\(\large \frac{n}{F_{s}}\)</span> for <span class="arithmatex">\(t\)</span></li>
+<li>This also brings in issues related to <a href="../Aliasing/">Aliasing</a></li>
+<li>Since we are really just evaluating at specific values of <span class="arithmatex">\(n\)</span>, we can simplify the integral into a sum at integer multiples of <span class="arithmatex">\(n\)</span>.</li>
+<li>The <a href="../DTFT/">Discrete-Time Fourier Transform</a> is almost exactly the same as the Continuous Time version described above. See it's page for more details<br/>
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{array}{}\LARGE X(e^{j2\pi f})=\sum\limits_{n=-\infty}^{\infty}x[n]e^{-j2\pi fn}\\\text{The DTFT}\end{array}\)</span>\)</span></li>
+</ul>
+</details>
+<details class="success">
+<summary>Discrete (Time and Frequency) Fourier Transform</summary>
+<ul>
+<li>If we take sample the <a href="../DTFT/">DTFT</a> on it's frequency axis, we get the <a href="../DFS/">Discrete Fourier Series</a> and <a href="../DFT/">DFT</a>, which are Discrete in both Time and Frequency. Typically, these (particularly the DFT) are used, because they are much easier for computers to calculate than the continuous DTFT<br/>
+<span class="arithmatex">\(<span class="arithmatex">\(\begin{array}{}\LARGE X[k]=\sum\limits_{n=0}^{N-1}x[n]e^{-jk \frac{2\pi}{N}n}\\\text{The DFS and DFT (Analysis Equation)}\end{array}\)</span>\)</span></li>
+<li>Where <span class="arithmatex">\(X[k]\)</span> is the k-th coefficient of the DFT/DFS, j is the imaginary unit, and the sum is taken over the length of one period of the sequence (DFS) or the length of the sequence (DFT). </li>
+<li>DFS describes <em>infinite-length, periodic</em> signals, whereas the DFT describes <em>finite-length</em> signals. A good discussion can be seen here, https://dsp.stackexchange.com/a/18157. The output of this equation will be the exact same for a DFT and a DFS.</li>
+</ul>
+</details>
+<details class="note">
+<summary>What Fourier do I apply?</summary>
+<p><img alt="Pasted image 20230113021230.png" src="../attachments/Pasted%20image%2020230113021230.png"/></p>
+</details>
+<hr/>
+<h2 id="domain-comparison">Domain Comparison<a class="headerlink" href="#domain-comparison" title="Permanent link">¶</a></h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>[[Discrete-Time Signal|Discrete-Time]]</th>
+<th>Frequency</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>System</td>
+<td><span class="arithmatex">\(h[n]\)</span> <a href="../Impulse%20Response/">Impulse Response</a></td>
+<td><span class="arithmatex">\(\large H(e^{j2\pi f})\)</span> <a href="../Frequency%20Response/">Frequency Response</a></td>
+</tr>
+<tr>
+<td>Signal</td>
+<td><span class="arithmatex">\(x[n]\)</span> Sequence</td>
+<td><span class="arithmatex">\(\large X(e^{j2\pi f})\)</span> [[DTFT|Spectrum]]</td>
+</tr>
+<tr>
+<td>Output</td>
+<td><span class="arithmatex">\(y[n]=x[n]\ast h[n]\)</span> <a href="../Convolution/">Convolution</a></td>
+<td><span class="arithmatex">\(Y(e^{j2\pi f})=H(e^{j2\pi f})X(e^{j2\pi f})\)</span> Multiplication!</td>
+</tr>
+<tr>
+<td>Units</td>
+<td>Units</td>
+<td>Units/Normalized Freq</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>If opportunity doesn't knock, build a door.<br/>
+— <cite>Milton Berle</cite></p>
+</blockquote>
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.e5c33ebb.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.51d95adb.min.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</body>
+</html>
